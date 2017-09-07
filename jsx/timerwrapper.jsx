@@ -3,6 +3,7 @@ const React = require('react');
 const Timer = require('./timer.jsx');
 const Button = require('./button.jsx');
 const PauseButton = require('./pausebutton.jsx');
+const Input = require('./input.jsx');
 
 class TimerWrapper extends React.Component {
   constructor() {
@@ -14,11 +15,13 @@ class TimerWrapper extends React.Component {
   startTimer(timeLeft) {
     clearInterval(this.state.timer);
     let timer = setInterval(() => {
-      var timeLeft = this.state.timeLeft - 1;
-      if (timeLeft == 0) {
-        clearInterval(timer);
+      if( this.state.timeLeft != 0 ) {
+        var timeLeft = ( this.state.timeLeft == 0 ) ? 0 : this.state.timeLeft - 1;
+        if (timeLeft == 0) {
+          clearInterval(timer);
+        }
+        this.setState({timeLeft: timeLeft});
       }
-      this.setState({timeLeft: timeLeft});
     }, 1000);
 
     return this.setState({timeLeft: timeLeft,
@@ -40,6 +43,7 @@ class TimerWrapper extends React.Component {
           <Button time="10" startTimer={this.startTimer}/>
           <Button time="15" startTimer={this.startTimer}/>
         </div>
+        <Input startTimer={this.startTimer}/>
         <Timer timeLeft={this.state.timeLeft}/>
         <PauseButton timeLeft={this.state.timeLeft} pauseTimer={this.pauseTimer}/>
       </div>
