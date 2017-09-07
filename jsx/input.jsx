@@ -31,7 +31,8 @@ class Input extends React.Component {
         <input type="number"
           min="0"
           placeholder="Time in seconds"
-          onKeyUp={this.keyPressHandler}>
+          onKeyUp={this.keyPressHandler}
+          onChange={this.keyPressHandler}>
         </input>
       </div>
     );
