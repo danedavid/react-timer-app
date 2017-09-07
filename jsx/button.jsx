@@ -11,7 +11,6 @@ class Button extends React.Component {
   render() {
     return <button
       type="button"
-      className='btn-default btn'
       onClick={this.startTimer}>
       {
         // onClick={()=>{this.props.startTimer(this.props.time)}}>

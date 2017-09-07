@@ -20,7 +20,6 @@ class PauseButton extends React.Component {
   render() {
     return ( this.props.timeLeft == null || this.props.timeLeft == 0 ) ?
     <div/> : <button
-      className='btn-default btn'
       onClick={this.pauseTimer}
       > {this.state.action} </button>
   }

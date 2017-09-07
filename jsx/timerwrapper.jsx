@@ -36,9 +36,9 @@ class TimerWrapper extends React.Component {
   }
   render() {
     return (
-      <div className="row-fluid">
-        <h2 className="text-primary">Timer</h2>
-        <div className="btn-group" role="group" >
+      <div>
+        <h2>Timer</h2>
+        <div>
           <Button time="5" startTimer={this.startTimer}/>
           <Button time="10" startTimer={this.startTimer}/>
           <Button time="15" startTimer={this.startTimer}/>
